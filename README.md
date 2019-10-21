@@ -32,6 +32,12 @@ Mode 3. Infinite redirects chain.
 python client.py -m 3
 ```
 
+Alternate client with requests.allow_redirects=False.
+
+```bash
+python client.py -m [1|2|3] -a
+```
+
 ## License
 
 MIT.

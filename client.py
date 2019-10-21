@@ -9,7 +9,11 @@ import config
         '-m', '--mode', type=int,
         required=True, help='Client request mode',
     )
-def client(mode):
+@click.option(
+        '-a', '--alt', type=bool, is_flag=True,
+        help='Alternate client',
+    )
+def client(mode, alt):
     url = 'http://{}:{}/mode{}'.format(
         config.SERVER_HOST,
         config.SERVER_PORT,
@@ -18,7 +22,12 @@ def client(mode):
     click.secho('Try {}'.format(url))
 
     try:
-        final_url = urlfinder.find(
+        if alt:
+            finder = urlfinder.find_alt
+        else:
+            finder = urlfinder.find
+
+        final_url = finder(
             url,
             config.MAX_REDIRECTS,
         )
