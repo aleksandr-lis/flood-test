@@ -26,7 +26,7 @@ Mode 2. Infinite redirects chain.
 python client.py -m 2
 ```
 
-Mode 3. Infinite redirects chain.
+Mode 3. Infinite redirects chain with content.
 
 ```bash
 python client.py -m 3
